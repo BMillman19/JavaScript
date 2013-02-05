@@ -1,4 +1,7 @@
 function reduce (xs, fn, seed) {
-  // NOTE: that seed is optional; you should give the appropriate default in the function body
-  // ...
+	var memo = seed;
+	for (var i = !memo ? 1 : 0; i < xs.length; i++) {
+		memo = fn(!memo ? xs[0] : memo, xs[i]);
+	}
+	return memo;
 }
